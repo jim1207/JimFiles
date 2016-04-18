@@ -1,0 +1,23 @@
+PROMPT_COMMAND=''
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
+export TERM="xterm-256color"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/JimFiles/out/lib
+export PATH=$HOME/JimFiles/out/bin:$PATH
+export PATH="$HOME/JimFiles/tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
+
+function tmx() {
+    case "$1" in
+        end)
+            tmux display-message -p '#S' | xargs tmux kill-session -t
+        ;;
+        clean)
+            tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill
+        ;;
+        *)
+            tmuxifier s $1
+        ;;
+    esac
+}
+
