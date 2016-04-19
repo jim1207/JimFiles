@@ -7,14 +7,15 @@
 if initialize_session "8084"; then
 
   # Create a new window inline within session layout definition.
-  new_window "free-use"
+  new_window "bash"
+  new_window "bash"
 
   # Create a new window inline within session layout definition.
   new_window "vim"
   run_cmd "cd /wk/8084/build/20151117/frameworks/av/media"
 
   # Load a defined window layout.
-  load_window "w2q"
+  load_window "w3q"
 
   new_window "logcat"
 
