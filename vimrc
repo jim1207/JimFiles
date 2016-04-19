@@ -6,6 +6,7 @@ set shiftwidth=4
 set expandtab
 set hidden
 set noswapfile
+set mouse=a
 hi Search cterm=NONE ctermfg=0 ctermbg=2
 hi Comment ctermfg=darkcyan
 
