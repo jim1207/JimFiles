@@ -1,11 +1,18 @@
 PROMPT_COMMAND=''
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+PS1='\t|${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+HISTTIMEFORMAT=`echo -e "\033[1;34m%F \033[1;31m%T \033[0m"`
 
 export TERM="xterm-256color"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/JimFiles/out/lib
 export PATH=$HOME/JimFiles/out/bin:$PATH
 export PATH="$HOME/JimFiles/tmuxifier/bin:$PATH"
+export TERMINFO_DIRS=$HOME/JimFiles/out/share/terminfo
+
 eval "$(tmuxifier init -)"
+
+alias vi=vim
+alias grep2='grep --line-buffered'
+alias jadbl='adb logcat -v time | grep2 -v -e qdutils -e ConnectivityService -e ProcessCpu -e GpsXtra -e "GC freed" -e "Failed to load device configuration"'
 
 function tmx() {
     case "$1" in
@@ -20,4 +27,36 @@ function tmx() {
         ;;
     esac
 }
+
+function jadbd(){
+    echo $1 > $IPFILE
+    echo "set jadbip.txt to $1"
+}
+
+function jadb(){
+    IPFILE="/home/jim/bin/jadbip.txt"
+    JADBIP=`cat $IPFILE`
+    if [ ! -z "$1" ]
+    then
+        if [ ! "$1" == "$JADBIP" ]
+        then
+        jadbd $1
+        JADBIP=$1
+        fi
+    fi
+
+    echo "ip=$JADBIP"
+
+    adb disconnect
+    adb connect $JADBIP
+}
+
+function jkm() {
+    adb shell "ps | grep mediaserver" | awk '{print $2}' | xargs adb shell kill
+}
+
+function fxv() {
+    adb shell "am start com.foxconn.fxvideo/com.foxconn.fxvideo.FxVideoActivity"
+}
+
 

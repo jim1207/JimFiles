@@ -6,20 +6,25 @@ set shiftwidth=4
 set expandtab
 set hidden
 set noswapfile
-set mouse=a
+"set background=dark
+if has('mouse')
+      set mouse=a
+endif
+
+
 hi Search cterm=NONE ctermfg=0 ctermbg=2
 hi Comment ctermfg=darkcyan
-
 hi StatusLine ctermbg=black ctermfg=DarkGreen guisp=Magenta guibg=Red
+hi Visual cterm=NONE ctermfg=0 ctermbg=7
 
 "cursor line + cursor color
 set cursorline
-highlight LineNr ctermfg=grey
-highlight CursorLine          guibg=#003853 ctermbg=8  gui=none cterm=none
-highlight CursorLineNR        guibg=#003853 ctermbg=3  ctermfg=0 gui=none cterm=none
+highlight linenr ctermfg=grey
+highlight cursorline          guibg=#003853 ctermbg=8  gui=none cterm=none
+highlight cursorlinenr        guibg=#003853 ctermbg=3  ctermfg=0 gui=none cterm=none
 
-"set t_Co=256          " 256 color mode
-hi MatchParen cterm=none ctermbg=8 ctermfg=6
+"set t_co=256          " 256 color mode
+hi matchparen cterm=none ctermbg=8 ctermfg=6
 
 execute pathogen#infect()
 syntax on
@@ -82,8 +87,8 @@ nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 "make vim save and load the folding of the document each time it loads"
 ""also places the cursor in the last place that it was left."
-"au BufWinLeave *.* mkview
-"au BufWinEnter *.* silent loadview
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
 
 "gVim
 "colorscheme desert
@@ -92,5 +97,6 @@ nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 "autocmd VimEnter * BuffergatorOpen
 "autocmd VimEnter * wincmd w
 
+set pastetoggle=<F2>
 
 
