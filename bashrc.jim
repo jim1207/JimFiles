@@ -34,7 +34,7 @@ function jadbd(){
 }
 
 function jadb(){
-    IPFILE="/home/jim/bin/jadbip.txt"
+    IPFILE="$HOME/jadbip.txt"
     JADBIP=`cat $IPFILE`
     if [ ! -z "$1" ]
     then
