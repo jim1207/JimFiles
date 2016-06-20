@@ -12,10 +12,10 @@ if initialize_session "s3"; then
   new_window
 
   # Load a defined window layout.
-  load_window "w3"
+  load_window "w2"
 
   # Load a defined window layout.
-  load_window "w2"
+  load_window "w3"
 
   # Select the default active window on session creation.
   select_window 0

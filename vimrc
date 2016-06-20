@@ -16,6 +16,7 @@ hi Search cterm=NONE ctermfg=0 ctermbg=2
 hi Comment ctermfg=darkcyan
 hi StatusLine ctermbg=black ctermfg=DarkGreen guisp=Magenta guibg=Red
 hi Visual cterm=NONE ctermfg=0 ctermbg=7
+hi ColorColumn ctermbg=0 guibg=#eee8d5
 
 "cursor line + cursor color
 set cursorline
@@ -31,7 +32,7 @@ syntax on
 filetype plugin indent on
 
 "NERDTree
-"map <C-n> :NERDTreeToggle<CR>
+map <f9> :NERDTreeToggle<CR>
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd bufenter * if (winnr("$") == 1 && bufname(winbufnr(0)) == "[[buffergator-buffers]]") | q | endif
@@ -41,14 +42,15 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 "nnoremap <silent> <c-e> :BufExplorer<CR>
 "nnoremap <silent> <c-m> :CtrlPMixed<CR>
 nnoremap <silent> <c-n> :BuffergatorOpen<CR>
+"nnoremap <silent> <c-n> :BuffergatorToggle<CR>
 nnoremap <silent> <c-l> :b#<CR>
 
 
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_open_multiple_files = 'i'
-"let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_cmd = 'CtrlPMixed'
+"let g:ctrlp_cmd = 'CtrlPMRU'
 
 let g:airline_theme='bubblegum'
 
@@ -65,14 +67,13 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/python/ycm/.ycm_e
 let g:ycm_confirm_extra_conf = 0
 
 "buffergator
-let g:buffergator_autodismiss_on_select = 1
+let g:buffergator_autodismiss_on_select = 0
 let g:buffergator_autoupdate = 1
 let g:buffergator_sort_regime = 'bufnum'
 
 "diminactive
-let g:diminactive_use_syntax = 1
-hi ColorColumn ctermbg=8 guibg=#eee8d5
-autocmd VimEnter * DimInactive
+"let g:diminactive_use_syntax = 1
+"autocmd VimEnter * DimInactive
 
 "single char input
 "http://vim.wikia.com/wiki/Insert_a_single_character

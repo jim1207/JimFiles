@@ -13,6 +13,7 @@ eval "$(tmuxifier init -)"
 alias vi=vim
 alias grep2='grep --line-buffered'
 alias jadbl='adb logcat -v time | grep2 -v -e qdutils -e ConnectivityService -e ProcessCpu -e GpsXtra -e "GC freed" -e "Failed to load device configuration"'
+alias jadbl2='adb logcat -v time | grep2 -v -e qdutils -e ConnectivityService -e ProcessCpu -e GpsXtra -e "GC freed" -e "Failed to load device configuration" -e ACDB -e hardware_info -e soundtrigger -e audio_hw'
 
 function tmx() {
     case "$1" in
