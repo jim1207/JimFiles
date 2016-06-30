@@ -60,4 +60,8 @@ function fxv() {
     adb shell "am start com.foxconn.fxvideo/com.foxconn.fxvideo.FxVideoActivity"
 }
 
+function jrt() {
+    sudo route delete default
+    sudo route add default gw 172.19.76.$1
+}
 

@@ -12,7 +12,8 @@ if has('mouse')
 endif
 
 
-hi Search cterm=NONE ctermfg=0 ctermbg=2
+"hi Search cterm=NONE ctermfg=0 ctermbg=2
+hi Search cterm=NONE ctermfg=3 ctermbg=1
 hi Comment ctermfg=darkcyan
 hi StatusLine ctermbg=black ctermfg=DarkGreen guisp=Magenta guibg=Red
 hi Visual cterm=NONE ctermfg=0 ctermbg=7
