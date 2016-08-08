@@ -65,3 +65,7 @@ function jrt() {
     sudo route add default gw 172.19.76.$1
 }
 
+function jls() {
+    find `pwd` | grep $1
+}
+
