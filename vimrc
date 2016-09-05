@@ -8,7 +8,7 @@ set hidden
 set noswapfile
 "set background=dark
 if has('mouse')
-      set mouse=a
+"      set mouse=a
 endif
 
 
@@ -45,6 +45,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 nnoremap <silent> <c-n> :BuffergatorOpen<CR>
 "nnoremap <silent> <c-n> :BuffergatorToggle<CR>
 nnoremap <silent> <c-l> :b#<CR>
+noremap <F4> :set invnumber<CR>
 
 
 let g:ctrlp_working_path_mode = 0
